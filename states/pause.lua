@@ -7,8 +7,9 @@ function pause:update(dt)
 end
 
 function pause:draw()
+  game:draw()
   love.graphics.setColor(0,255,0,255)
-  love.graphics.rectangle("fill", 0, 465, 500, 150)
+  love.graphics.print("PAUSED", 10,10)
 end
 
 function pause:keyreleased(key, code)

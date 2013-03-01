@@ -27,7 +27,9 @@ function Player:shouldCollide(other)
 end
 
 function Player:collision(other, dx,dy)
-  -- TODO
+  if instanceOf(Player, other) then
+    self.l,self.t = self.l+dx,self.t+dy
+  end
 end
 
 function Player:update(dt, maxdt)
@@ -36,7 +38,9 @@ function Player:update(dt, maxdt)
     self.l = self.l - self.speed*dt
   elseif love.keyboard.isDown(right) then
     self.l = self.l + self.speed*dt
-  elseif love.keyboard.isDown(up) then
+  end
+  
+  if love.keyboard.isDown(up) then
     self.t = self.t - self.speed*dt
   elseif love.keyboard.isDown(down) then
     self.t = self.t + self.speed*dt
