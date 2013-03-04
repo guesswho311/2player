@@ -27,8 +27,8 @@ function bump.getBBox(obj)
 end
 
 local function reset()
-  player1 = Player:new(400,100, 'a','d','w','s', 255,0,0)
-  player2 = Player:new(400,450, 'left','right','up','down', 0,0,255)
+  player1 = Player:new(200,175, 'a',   'd',    'w', 's',    255,  0,  0)
+  player2 = Player:new(600,175, 'left','right','up','down',   0,  0,255)
 end
   
 

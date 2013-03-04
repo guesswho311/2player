@@ -28,7 +28,7 @@ end
 
 function Player:collision(other, dx,dy)
   if instanceOf(Player, other) then
-    self.l,self.t = self.l+dx,self.t+dy
+    self.l,self.t = self.l+dx/2,self.t+dy/2
   end
 end
 
