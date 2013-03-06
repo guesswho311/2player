@@ -1,4 +1,8 @@
-local bump   = require 'lib.bump'
-local Entity = require 'entities.Entity'
-
 local Powerup = class('Powerup', Entity)
+
+function PowerActivate()
+end
+
+function PowerDeactivate()
+end
+return Powerup

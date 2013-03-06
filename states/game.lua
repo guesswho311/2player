@@ -4,6 +4,8 @@ local bump = require 'lib.bump'
 
 local Entity = require 'entities.Entity'
 local Player = require 'entities.Player'
+local Powerup = require 'entities.Powerup'
+local Speed  = require 'entities.Powerups.Speed'
 
 local maxdt = 0.1    -- if the window loses focus/etc, use this instead of dt
 
@@ -29,6 +31,7 @@ end
 local function reset()
   player1 = Player:new(200,175, 'a',   'd',    'w', 's',    255,  0,  0)
   player2 = Player:new(600,175, 'left','right','up','down',   0,  0,255)
+  SpeedUp = Speed:new(100,100, 50, 75, 100)
 end
   
 
@@ -57,6 +60,7 @@ end
 function game:draw()
   player1:draw()
   player2:draw()
+  SpeedUp:draw()
 end
 
 return game
