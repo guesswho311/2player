@@ -1,6 +1,6 @@
-local entities = {}
-
 local Entity = class('Entity')
+
+local entities = {}
 
 local entityCounter = 0
 

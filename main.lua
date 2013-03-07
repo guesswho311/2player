@@ -14,5 +14,11 @@ end
 
 function love.draw()
   love.graphics.setColor(255,255,255,255)
-  love.graphics.print(tostring(love.timer.getFPS( )), 10, 10)
+  love.graphics.print(tostring(love.timer.getFPS()), 10, 10)
+end
+
+function love.keyreleased(key)
+  if (key == "escape") then
+    love.event.quit()
+  end
 end

@@ -1,7 +1,8 @@
-local bump   = require 'lib.bump'
-local Entity = require 'entities.Entity'
+local bump    = require 'lib.bump'
+local Powerup = require 'entities.Powerup'
+local Entity  = require 'entities.Entity'
 
-local Player = class('Player', Entity)
+local Player  = class('Player', Entity)
 
 function Player:initialize(l,t, left,right,up,down, r,g,b)
   Entity.initialize(self, l,t, 32,32)
@@ -21,14 +22,17 @@ function Player:initialize(l,t, left,right,up,down, r,g,b)
 end
 
 function Player:shouldCollide(other)
-  return instanceOf(Block, other)
-      or instanceOf(Player, other)
-      or instanceOf(Shot, other)
+  return instanceOf(Player, other)
+      or instanceOf(Powerup, other)
 end
 
 function Player:collision(other, dx,dy)
   if instanceOf(Player, other) then
     self.l,self.t = self.l+dx/2,self.t+dy/2
+  elseif instanceOf(Powerup, other) then
+    other:activate(self)
+    bump.remove(other)
+    other:destroy(self)
   end
 end
 
